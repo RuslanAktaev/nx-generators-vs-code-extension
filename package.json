@@ -9,13 +9,15 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "workspaceContains:/nx.json"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
         "command": "ronas-it-nx-generators.helloWorld",
-        "title": "Hello World"
+        "title": "Say hello"
       }
     ]
   },
