@@ -16,10 +16,18 @@
   "contributes": {
     "commands": [
       {
-        "command": "ronas-it-nx-generators.helloWorld",
-        "title": "Say hello"
+        "command": "ronas-it-nx-generators.generateComponent",
+        "title": "Generate component"
       }
-    ]
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "group": "NX Generators",
+          "command": "ronas-it-nx-generators.generateComponent"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",

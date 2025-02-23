@@ -1,29 +1,79 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
+const quickPickItems: vscode.QuickPickItem[] = [
+  {
+    label: "--first-param",
+    description: "First item param",
+  },
+  {
+    label: "--second-param",
+    description: "Second item param",
+  },
+  {
+    label: "--third-param",
+    description: "Third item param",
+  },
+];
+
 export function activate(context: vscode.ExtensionContext) {
-  // Use the console to output diagnostic information (console.log) and errors (console.error)
-  // This line of code will only be executed once when your extension is activated
   console.log(
-    'Congratulations, your extension "ronas-it-nx-generators" is now active!'
+    'Congratulations, your extension "ronas-it-nx-generators" is now activeeee!'
   );
 
-  // The command has been defined in the package.json file
-  // Now provide the implementation of the command with registerCommand
-  // The commandId parameter must match the command field in package.json
-  const disposable = vscode.commands.registerCommand(
-    "ronas-it-nx-generators.helloWorld",
-    () => {
-      // The code you place here will be executed every time your command is executed
-      // Display a message box to the user
-      vscode.window.showWarningMessage("Hello VS Code");
-    }
+  context.subscriptions.push(
+    vscode.commands.registerCommand(
+      "ronas-it-nx-generators.generateComponent",
+      (resourceUrl?: vscode.Uri) => {
+        if (!resourceUrl) {
+          return;
+        }
+
+        // const relativeSource = vscode.workspace.asRelativePath(
+        //   resourceUrl,
+        //   false
+        // );
+
+        // let cmd = 'nx g some-cmd';
+        let params = "";
+
+        const quickPick = vscode.window.createQuickPick();
+
+        quickPick.title = "Generate component: options";
+        quickPick.placeholder = "Select option";
+        quickPick.items = quickPickItems;
+
+        quickPick.onDidChangeSelection(async ([{ label }]) => {
+          const value = await vscode.window.showInputBox({
+            title: label,
+            prompt: "Enter param value",
+          });
+
+          params = `${params} ${label}=${value}`;
+
+          // vscode.window.showInformationMessage(label + ": " + value);
+
+          quickPick.items = quickPick.items.filter(
+            (item) => item.label !== label
+          );
+
+          if (quickPick.items.length !== 0) {
+            quickPick.show();
+          } else {
+            quickPick.dispose();
+
+            const terminal = vscode.window.createTerminal("Generate component");
+
+            terminal.show();
+            terminal.sendText(`nx g custom-generator:component ${params}`);
+          }
+        });
+
+        quickPick.show();
+      }
+    )
   );
 
-  context.subscriptions.push(disposable);
+  // context.subscriptions.push(disposable);
 }
 
 // This method is called when your extension is deactivated
