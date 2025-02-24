@@ -1,26 +1,41 @@
 import * as vscode from "vscode";
-import { componentGeneratorOptions } from "./generators/component";
-import { pickTerminalCommandOptions, sendTextToTerminal } from "./shared/utils";
+import { constants } from "./generators/component";
+import {
+  buildTerminalGeneratorCommand,
+  pickTerminalCommandParams,
+  sendTextToTerminal,
+} from "./shared/utils";
 
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
     vscode.commands.registerCommand(
       "ronas-it-nx-generators.generateComponent",
       () => {
-        const command = "nx g custom-generator:component";
-
-        pickTerminalCommandOptions({
+        pickTerminalCommandParams({
           title: "Generate component: options",
           placeholder: "Select option",
-          executeCommandTitle: `Execute command: ${command}`,
-          options: componentGeneratorOptions,
+          executeCommandTitle: (paramsString: string) =>
+            `Execute command: ${buildTerminalGeneratorCommand(
+              constants.command,
+              paramsString
+            )}`,
+          options: constants.generatorOptions.map(
+            ({ param, detail, type }) => ({
+              label: param,
+              type,
+              detail,
+            })
+          ),
           textInputOptions: {
             prompt: "Generate component",
           },
           onParamsEntered: (paramsString) =>
             sendTextToTerminal({
               name: "Generate component",
-              command: `${command} ${paramsString}`,
+              command: buildTerminalGeneratorCommand(
+                constants.command,
+                paramsString
+              ),
             }),
         });
       }
