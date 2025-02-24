@@ -11,9 +11,11 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.commands.registerCommand(
       "ronas-it-nx-generators.generateComponent",
       () => {
+        const title = "RonasIT/NX Generators: Generate component";
+
         pickTerminalCommandParams({
-          title: "Generate component: options",
-          placeholder: "Select option",
+          title: `${title}. Options`,
+          placeholder: "Execute command or set flags",
           executeCommandTitle: (paramsString: string) =>
             `Execute command: ${buildTerminalGeneratorCommand(
               constants.command,
@@ -26,12 +28,9 @@ export function activate(context: vscode.ExtensionContext) {
               detail,
             })
           ),
-          textInputOptions: {
-            prompt: "Generate component",
-          },
           onParamsEntered: (paramsString) =>
             sendTextToTerminal({
-              name: "Generate component",
+              name: title,
               command: buildTerminalGeneratorCommand(
                 constants.command,
                 paramsString

@@ -17,13 +17,13 @@
     "commands": [
       {
         "command": "ronas-it-nx-generators.generateComponent",
-        "title": "Generate component"
+        "title": "RonasIT/NX Generators: Generate component"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "group": "NX Generators",
+          "group": "RonasIT/NX Generators",
           "command": "ronas-it-nx-generators.generateComponent"
         }
       ]

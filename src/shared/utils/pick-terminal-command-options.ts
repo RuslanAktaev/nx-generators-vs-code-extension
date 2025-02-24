@@ -3,13 +3,11 @@ import { TerminalParamPickerItem } from "../types";
 import { inputTerminalParamValue } from "./input-terminal-param-value";
 import { appendParamToTerminalCommand } from "./append-param-to-terminal-command";
 
-// TODO: Add support of unnecessary params
 export type PickTerminalCommandParamsArgs = {
   title: string;
   placeholder: string;
   executeCommandTitle: (paramsString: string) => string;
   options: Array<TerminalParamPickerItem>;
-  textInputOptions?: vscode.InputBoxOptions;
   onParamsEntered: (paramsString: string) => void;
 };
 
@@ -18,7 +16,6 @@ export const pickTerminalCommandParams = ({
   placeholder,
   executeCommandTitle,
   options,
-  textInputOptions = {},
   onParamsEntered,
 }: PickTerminalCommandParamsArgs): vscode.QuickPick<TerminalParamPickerItem> => {
   let paramsString = "";
@@ -44,9 +41,7 @@ export const pickTerminalCommandParams = ({
     });
 
     quickPick.items[0].label = executeCommandTitle(paramsString);
-    quickPick.items = [
-      ...quickPick.items.filter((item) => item.label !== param),
-    ];
+    quickPick.items = quickPick.items.filter((item) => item.label !== param);
   };
 
   quickPick.title = title;
@@ -69,7 +64,7 @@ export const pickTerminalCommandParams = ({
     const paramValue = await inputTerminalParamValue({
       type,
       title: label,
-      ...textInputOptions,
+      placeHolder: `--${label}`,
     });
 
     updateParam(label, paramValue);
