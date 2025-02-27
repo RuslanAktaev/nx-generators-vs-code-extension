@@ -1,9 +1,9 @@
-import * as vscode from "vscode";
-import { TerminalParam, TerminalParamPickerItem } from "../../shared/types";
+import { GeneratorConfig } from "../types";
 
-export const constants = {
+export const componentGeneratorConfig: GeneratorConfig = {
+  title: "Generate React component",
   command: "react-component",
-  generatorOptions: [
+  params: [
     {
       param: "name",
       detail: "Name of the component (e.g. AppButton)",
@@ -19,5 +19,5 @@ export const constants = {
       detail: "Generate a component with forwardRef",
       type: "boolean",
     },
-  ] as TerminalParam[],
+  ],
 };

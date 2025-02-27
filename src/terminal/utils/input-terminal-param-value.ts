@@ -1,5 +1,4 @@
 import * as vscode from "vscode";
-import { TerminalParamType } from "../types";
 import { omit } from "lodash";
 
 export type InputTerminalParamValueArgs =

@@ -16,15 +16,23 @@
   "contributes": {
     "commands": [
       {
-        "command": "ronas-it-nx-generators.generateComponent",
-        "title": "RonasIT/NX Generators: Generate component"
+        "command": "ronas-it-nx-generators.react-component",
+        "title": "RonasIT/NX Generators: Generate React component"
+      },
+      {
+        "command": "ronas-it-nx-generators.react-lib",
+        "title": "RonasIT/NX Generators: Generate React library"
       }
     ],
     "menus": {
       "explorer/context": [
         {
           "group": "RonasIT/NX Generators",
-          "command": "ronas-it-nx-generators.generateComponent"
+          "command": "ronas-it-nx-generators.react-component"
+        },
+        {
+          "group": "RonasIT/NX Generators",
+          "command": "ronas-it-nx-generators.react-lib"
         }
       ]
     }
