@@ -4,8 +4,15 @@ import {
   reactLibraryGeneratorConfig,
   runGenerator,
 } from "./generators";
+import { isNXProject } from "./shared";
 
-export function activate(context: vscode.ExtensionContext) {
+export async function activate(context: vscode.ExtensionContext) {
+  vscode.commands.executeCommand(
+    "setContext",
+    "ronas-it-nx-generators.isNXProject",
+    isNXProject()
+  );
+
   [componentGeneratorConfig, reactLibraryGeneratorConfig].forEach((config) => {
     context.subscriptions.push(
       vscode.commands.registerCommand(

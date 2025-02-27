@@ -28,7 +28,8 @@
       "explorer/context": [
         {
           "submenu": "ronas-it-nx-generators.submenus.generators",
-          "group": "ronas-it-nx-generators.groups.generators"
+          "group": "ronas-it-nx-generators.groups.generators",
+          "when": "ronas-it-nx-generators.isNXProject"
         }
       ],
       "ronas-it-nx-generators.submenus.generators": [
