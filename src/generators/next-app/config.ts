@@ -11,7 +11,7 @@ export const nextAppGeneratorConfig: GeneratorConfig = {
     },
     {
       param: "directory",
-      detail: "name of the directory in the apps/ folder (e.g: web)",
+      detail: "Name of the directory in the apps/ folder (e.g: web)",
       type: "string",
     },
   ],

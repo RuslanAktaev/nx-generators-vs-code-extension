@@ -24,12 +24,40 @@
         "title": "Generate Next App"
       },
       {
-        "command": "ronas-it-nx-generators.react-component",
-        "title": "Generate React component"
-      },
-      {
         "command": "ronas-it-nx-generators.react-lib",
         "title": "Generate React library"
+      },
+      {
+        "command": "ronas-it-nx-generators.lib-move",
+        "title": "Move library"
+      },
+      {
+        "command": "ronas-it-nx-generators.lib-rename",
+        "title": "Rename library"
+      },
+      {
+        "command": "ronas-it-nx-generators.lib-remove",
+        "title": "Remove library"
+      },
+      {
+        "command": "ronas-it-nx-generators.lib-tags",
+        "title": "Library tags"
+      },
+      {
+        "command": "ronas-it-nx-generators.react-component",
+        "title": "React component"
+      },
+      {
+        "command": "ronas-it-nx-generators.form",
+        "title": "Form"
+      },
+      {
+        "command": "ronas-it-nx-generators.entity-api",
+        "title": "Entity api"
+      },
+      {
+        "command": "ronas-it-nx-generators.sentry",
+        "title": "Sentry"
       }
     ],
     "menus": {
@@ -42,16 +70,57 @@
       ],
       "ronas-it-nx-generators.submenus.generators": [
         {
+          "submenu": "ronas-it-nx-generators.submenus.generators.app"
+        },
+        {
+          "submenu": "ronas-it-nx-generators.submenus.generators.library"
+        },
+        {
+          "submenu": "ronas-it-nx-generators.submenus.generators.component"
+        },
+        {
+          "submenu": "ronas-it-nx-generators.submenus.generators.services"
+        }
+      ],
+      "ronas-it-nx-generators.submenus.generators.app": [
+        {
           "command": "ronas-it-nx-generators.expo-app"
         },
         {
           "command": "ronas-it-nx-generators.next-app"
+        }
+      ],
+      "ronas-it-nx-generators.submenus.generators.library": [
+        {
+          "command": "ronas-it-nx-generators.react-lib"
         },
+        {
+          "command": "ronas-it-nx-generators.lib-move"
+        },
+        {
+          "command": "ronas-it-nx-generators.lib-rename"
+        },
+        {
+          "command": "ronas-it-nx-generators.lib-remove"
+        },
+        {
+          "command": "ronas-it-nx-generators.lib-tags"
+        }
+      ],
+      "ronas-it-nx-generators.submenus.generators.component": [
         {
           "command": "ronas-it-nx-generators.react-component"
         },
         {
-          "command": "ronas-it-nx-generators.react-lib"
+          "command": "ronas-it-nx-generators.form"
+        }
+      ],
+      "ronas-it-nx-generators.submenus.generators.services": [
+        {
+          "command": "ronas-it-nx-generators.entity-api"
+        },
+        {
+          "command": "ronas-it-nx-generators.sentry"
         }
       ]
     },
@@ -59,6 +128,22 @@
       {
         "id": "ronas-it-nx-generators.submenus.generators",
         "label": "Ronas IT/NX generators"
+      },
+      {
+        "id": "ronas-it-nx-generators.submenus.generators.app",
+        "label": "Applications"
+      },
+      {
+        "id": "ronas-it-nx-generators.submenus.generators.library",
+        "label": "Libraries"
+      },
+      {
+        "id": "ronas-it-nx-generators.submenus.generators.component",
+        "label": "Components"
+      },
+      {
+        "id": "ronas-it-nx-generators.submenus.generators.services",
+        "label": "Services"
       }
     ]
   },
