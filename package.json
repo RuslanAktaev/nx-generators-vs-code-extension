@@ -16,6 +16,14 @@
   "contributes": {
     "commands": [
       {
+        "command": "ronas-it-nx-generators.expo-app",
+        "title": "Generate Expo App"
+      },
+      {
+        "command": "ronas-it-nx-generators.next-app",
+        "title": "Generate Next App"
+      },
+      {
         "command": "ronas-it-nx-generators.react-component",
         "title": "Generate React component"
       },
@@ -33,6 +41,12 @@
         }
       ],
       "ronas-it-nx-generators.submenus.generators": [
+        {
+          "command": "ronas-it-nx-generators.expo-app"
+        },
+        {
+          "command": "ronas-it-nx-generators.next-app"
+        },
         {
           "command": "ronas-it-nx-generators.react-component"
         },

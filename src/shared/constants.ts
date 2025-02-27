@@ -1,3 +1,3 @@
 export const constants = {
-  scopes: ["features", "data-access", "ui", "utils"],
+  libraryTypes: ["features", "data-access", "ui", "utils"],
 };
