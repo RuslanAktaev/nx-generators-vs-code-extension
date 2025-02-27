@@ -14,7 +14,7 @@ export const reactLibraryGeneratorConfig: GeneratorConfig = {
       param: "scope",
       detail:
         "Name of a scope or shared. This option is for a library, related to an app.",
-      type: "string",
+      type: "scope",
     },
     {
       param: "type",

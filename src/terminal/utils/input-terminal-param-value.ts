@@ -1,12 +1,13 @@
 import * as vscode from "vscode";
 import { omit } from "lodash";
+import { constants } from "../../shared";
 
 export type InputTerminalParamValueArgs =
   | ({
       type: "string";
     } & vscode.InputBoxOptions)
   | ({
-      type: "boolean";
+      type: "boolean" | "scope";
     } & vscode.QuickPickOptions);
 
 export const inputTerminalParamValue = async (
@@ -18,6 +19,11 @@ export const inputTerminalParamValue = async (
     case "boolean":
       return await vscode.window.showQuickPick(
         ["true", "false"],
+        omit(options, ["type"])
+      );
+    case "scope":
+      return await vscode.window.showQuickPick(
+        constants.scopes,
         omit(options, ["type"])
       );
     default:

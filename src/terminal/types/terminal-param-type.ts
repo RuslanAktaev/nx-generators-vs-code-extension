@@ -1,1 +1,1 @@
-export type TerminalParamType = "execute" | "string" | "boolean";
+export type TerminalParamType = "execute" | "string" | "boolean" | "scope";
