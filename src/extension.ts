@@ -5,6 +5,13 @@ import {
   runGenerator,
   expoAppGeneratorConfig,
   nextAppGeneratorConfig,
+  moveLibraryGeneratorConfig,
+  renameLibraryGeneratorConfig,
+  removeLibraryGeneratorConfig,
+  libraryTagsGeneratorConfig,
+  formGeneratorConfig,
+  entityApiGeneratorConfig,
+  sentryGeneratorConfig,
 } from "./generators";
 import { isNXProject } from "./shared";
 
@@ -18,8 +25,15 @@ export async function activate(context: vscode.ExtensionContext) {
   [
     expoAppGeneratorConfig,
     nextAppGeneratorConfig,
-    componentGeneratorConfig,
     reactLibraryGeneratorConfig,
+    moveLibraryGeneratorConfig,
+    renameLibraryGeneratorConfig,
+    removeLibraryGeneratorConfig,
+    libraryTagsGeneratorConfig,
+    componentGeneratorConfig,
+    formGeneratorConfig,
+    entityApiGeneratorConfig,
+    sentryGeneratorConfig,
   ].forEach((config) => {
     context.subscriptions.push(
       vscode.commands.registerCommand(
