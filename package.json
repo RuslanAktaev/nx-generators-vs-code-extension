@@ -17,25 +17,35 @@
     "commands": [
       {
         "command": "ronas-it-nx-generators.react-component",
-        "title": "RonasIT/NX Generators: Generate React component"
+        "title": "Generate React component"
       },
       {
         "command": "ronas-it-nx-generators.react-lib",
-        "title": "RonasIT/NX Generators: Generate React library"
+        "title": "Generate React library"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "group": "RonasIT/NX Generators",
+          "submenu": "ronas-it-nx-generators.submenus.generators",
+          "group": "ronas-it-nx-generators.groups.generators"
+        }
+      ],
+      "ronas-it-nx-generators.submenus.generators": [
+        {
           "command": "ronas-it-nx-generators.react-component"
         },
         {
-          "group": "RonasIT/NX Generators",
           "command": "ronas-it-nx-generators.react-lib"
         }
       ]
-    }
+    },
+    "submenus": [
+      {
+        "id": "ronas-it-nx-generators.submenus.generators",
+        "label": "Ronas IT/NX generators"
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
