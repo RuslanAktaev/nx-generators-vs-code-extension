@@ -9,7 +9,6 @@ export const reactLibraryGeneratorConfig: GeneratorConfig = {
       detail: "Name of an app or shared",
       type: "string",
     },
-    // TODO: Implement picker here
     {
       param: "scope",
       detail:
