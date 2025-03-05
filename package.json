@@ -2,6 +2,13 @@
   "name": "ronas-it-nx-generators",
   "displayName": "@ronas-it/nx-generators VS Code extension",
   "description": "VS Code extention for @ronas-it/nx-generators",
+  "icon": "images/logo.png",
+  "version": "0.1.0",
+  "publisher": "RuslanAktaev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RuslanAktaev/nx-generators-vs-code-extension"
+  },
   "engines": {
     "vscode": "^1.97.0"
   },
