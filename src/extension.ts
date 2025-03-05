@@ -12,6 +12,8 @@ import {
   formGeneratorConfig,
   entityApiGeneratorConfig,
   sentryGeneratorConfig,
+  repoConfigGeneratorConfig,
+  codeChecksGeneratorConfig,
 } from "./generators";
 import { isNXProject } from "./shared";
 
@@ -23,6 +25,8 @@ export async function activate(context: vscode.ExtensionContext) {
   );
 
   [
+    repoConfigGeneratorConfig,
+    codeChecksGeneratorConfig,
     expoAppGeneratorConfig,
     nextAppGeneratorConfig,
     reactLibraryGeneratorConfig,
