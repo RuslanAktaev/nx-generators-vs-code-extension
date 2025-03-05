@@ -1,8 +1,7 @@
 {
   "name": "ronas-it-nx-generators",
-  "displayName": "@ronas-it/nx-generators",
-  "description": "@ronas-it/nx-generators VS Code extention",
-  "version": "0.0.1",
+  "displayName": "@ronas-it/nx-generators VS Code extension",
+  "description": "VS Code extention for @ronas-it/nx-generators",
   "engines": {
     "vscode": "^1.97.0"
   },
