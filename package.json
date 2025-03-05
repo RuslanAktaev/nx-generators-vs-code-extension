@@ -16,6 +16,14 @@
   "contributes": {
     "commands": [
       {
+        "command": "ronas-it-nx-generators.repo-config",
+        "title": "Repo Config"
+      },
+      {
+        "command": "ronas-it-nx-generators.code-checks",
+        "title": "Code Checks"
+      },
+      {
         "command": "ronas-it-nx-generators.expo-app",
         "title": "Generate Expo App"
       },
@@ -70,6 +78,9 @@
       ],
       "ronas-it-nx-generators.submenus.generators": [
         {
+          "submenu": "ronas-it-nx-generators.submenus.generators.repo"
+        },
+        {
           "submenu": "ronas-it-nx-generators.submenus.generators.app"
         },
         {
@@ -80,6 +91,14 @@
         },
         {
           "submenu": "ronas-it-nx-generators.submenus.generators.services"
+        }
+      ],
+      "ronas-it-nx-generators.submenus.generators.repo": [
+        {
+          "command": "ronas-it-nx-generators.repo-config"
+        },
+        {
+          "command": "ronas-it-nx-generators.code-checks"
         }
       ],
       "ronas-it-nx-generators.submenus.generators.app": [
@@ -128,6 +147,10 @@
       {
         "id": "ronas-it-nx-generators.submenus.generators",
         "label": "Ronas IT/NX generators"
+      },
+      {
+        "id": "ronas-it-nx-generators.submenus.generators.repo",
+        "label": "Repository"
       },
       {
         "id": "ronas-it-nx-generators.submenus.generators.app",
