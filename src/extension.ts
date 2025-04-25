@@ -42,7 +42,7 @@ export async function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(
       vscode.commands.registerCommand(
         `ronas-it-nx-generators.${config.command}`,
-        () => runGenerator(config)
+        (uri) => runGenerator(config, uri)
       )
     );
   });

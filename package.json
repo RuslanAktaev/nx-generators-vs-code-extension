@@ -10,7 +10,7 @@
     "url": "https://github.com/RuslanAktaev/nx-generators-vs-code-extension"
   },
   "engines": {
-    "vscode": "^1.97.0"
+    "vscode": "^1.94.0"
   },
   "categories": [
     "Other"

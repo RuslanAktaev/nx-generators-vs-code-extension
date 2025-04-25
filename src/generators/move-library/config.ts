@@ -14,18 +14,21 @@ export const moveLibraryGeneratorConfig: GeneratorConfig = {
       param: "app",
       detail: "Name of an app or shared",
       type: "string",
+      context: "app",
     },
     {
       param: "scope",
       detail:
         "Name of a scope or shared. This option is for a library, related to an app",
       type: "string",
+      context: "scope",
     },
     {
       param: "type",
       detail:
         "Type of library. Possible values are features, data-access, ui and utils",
       type: "library-type",
+      context: "type",
     },
     {
       param: "name",
