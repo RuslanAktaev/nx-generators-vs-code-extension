@@ -3,7 +3,7 @@
   "displayName": "Nx Generators by Ronas IT for VS Code",
   "description": "VS Code extention for @ronas-it/nx-generators",
   "icon": "images/logo.png",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publisher": "RuslanAktaev",
   "repository": {
     "type": "git",
@@ -194,7 +194,7 @@
     "@types/lodash": "^4.17.15",
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
-    "@types/vscode": "^1.97.0",
+    "@types/vscode": "^1.94.0",
     "@typescript-eslint/eslint-plugin": "^8.22.0",
     "@typescript-eslint/parser": "^8.22.0",
     "@vscode/test-cli": "^0.0.10",
