@@ -13,3 +13,5 @@ export * from "./component";
 export * from "./form";
 export * from "./entity-api";
 export * from "./sentry";
+export * from "./auth";
+export * from "./dockerfile";

@@ -72,6 +72,14 @@
       {
         "command": "ronas-it-nx-generators.sentry",
         "title": "Sentry"
+      },
+      {
+        "command": "ronas-it-nx-generators.auth",
+        "title": "Auth"
+      },
+      {
+        "command": "ronas-it-nx-generators.dockerfile",
+        "title": "Dockerfile"
       }
     ],
     "menus": {
@@ -146,13 +154,19 @@
         },
         {
           "command": "ronas-it-nx-generators.sentry"
+        },
+        {
+          "command": "ronas-it-nx-generators.auth"
+        },
+        {
+          "command": "ronas-it-nx-generators.dockerfile"
         }
       ]
     },
     "submenus": [
       {
         "id": "ronas-it-nx-generators.submenus.generators",
-        "label": "Ronas IT/NX generators"
+        "label": "Ronas IT: NX generators"
       },
       {
         "id": "ronas-it-nx-generators.submenus.generators.repo",
