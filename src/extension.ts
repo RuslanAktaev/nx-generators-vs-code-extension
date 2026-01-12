@@ -14,6 +14,8 @@ import {
   sentryGeneratorConfig,
   repoConfigGeneratorConfig,
   codeChecksGeneratorConfig,
+  authGeneratorConfig,
+  dockerfileGeneratorConfig,
 } from "./generators";
 import { isNXProject } from "./shared";
 
@@ -38,6 +40,8 @@ export async function activate(context: vscode.ExtensionContext) {
     formGeneratorConfig,
     entityApiGeneratorConfig,
     sentryGeneratorConfig,
+    authGeneratorConfig,
+    dockerfileGeneratorConfig,
   ].forEach((config) => {
     context.subscriptions.push(
       vscode.commands.registerCommand(

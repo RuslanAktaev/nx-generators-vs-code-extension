@@ -2,4 +2,5 @@ export type TerminalParamType =
   | "execute"
   | "string"
   | "boolean"
-  | "library-type";
+  | "library-type"
+  | "app-type";
