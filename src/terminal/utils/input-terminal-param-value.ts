@@ -7,7 +7,7 @@ export type InputTerminalParamValueArgs =
       type: "string";
     } & vscode.InputBoxOptions)
   | ({
-      type: "boolean" | "library-type" | "app-type";
+      type: "boolean" | "libraryType" | "appType";
     } & vscode.QuickPickOptions);
 
 export const inputTerminalParamValue = async (
@@ -21,12 +21,12 @@ export const inputTerminalParamValue = async (
         ["true", "false"],
         omit(options, ["type"])
       );
-    case "library-type":
+    case "libraryType":
       return await vscode.window.showQuickPick(
         constants.libraryTypes,
         omit(options, ["type"])
       );
-    case "app-type":
+    case "appType":
       return await vscode.window.showQuickPick(
         constants.appTypes,
         omit(options, ["type"])

@@ -1,1 +1,6 @@
-export type TerminalParamContext = "default" | "app" | "scope" | "type";
+export type TerminalParamContext =
+  | "default"
+  | "app"
+  | "scope"
+  | "type"
+  | "appType";

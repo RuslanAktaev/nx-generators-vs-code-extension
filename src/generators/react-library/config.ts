@@ -21,7 +21,7 @@ export const reactLibraryGeneratorConfig: GeneratorConfig = {
       param: "type",
       detail:
         "Type of library. Possible values are features, data-access, ui and utils",
-      type: "library-type",
+      type: "libraryType",
       context: "type",
     },
     {

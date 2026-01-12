@@ -8,11 +8,13 @@ export const authGeneratorConfig: GeneratorConfig = {
       param: "directory",
       detail: "The name of the directory in the 'apps/' folder",
       type: "string",
+      context: "app",
     },
     {
       param: "type",
       detail: "Application type",
-      type: "app-type",
+      type: "appType",
+      context: "appType",
     },
   ],
 };
