@@ -9,6 +9,7 @@ export const moveLibraryGeneratorConfig: GeneratorConfig = {
       detail:
         "Name of the library (e.g.: mobile-account-features-profile-settings)",
       type: "string",
+      context: "libName",
     },
     {
       param: "app",

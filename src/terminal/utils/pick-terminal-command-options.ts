@@ -22,8 +22,6 @@ export const pickTerminalCommandParams = async ({
 }: PickTerminalCommandParamsArgs): Promise<
   vscode.QuickPick<TerminalParamPickerItem>
 > => {
-  vscode.window.showInformationMessage("pickTerminalCommandParams");
-
   const sourceInfo = await getSourceInfo(uri);
 
   let params: Record<string, any> = {};
@@ -67,14 +65,13 @@ export const pickTerminalCommandParams = async ({
   options.forEach(({ context, label }) => {
     if (
       sourceInfo.locationType === "lib" &&
-      (context === "type" || context === "app" || context === "scope")
+      (context === "type" ||
+        context === "app" ||
+        context === "scope" ||
+        context === "libName")
     ) {
       updateParam(label, sourceInfo[context], false);
     }
-
-    vscode.window.showInformationMessage(
-      `sourceInfo.locationType: ${sourceInfo.locationType}, context: ${context}`
-    );
 
     if (
       sourceInfo.locationType === "app" &&

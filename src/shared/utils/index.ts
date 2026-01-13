@@ -1,2 +1,3 @@
 export * from "./is-nx-project";
-export * from "./get-source-info";
+export * from "./source-info";
+export * from "./filesystem";

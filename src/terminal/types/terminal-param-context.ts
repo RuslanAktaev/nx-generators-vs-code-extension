@@ -3,4 +3,5 @@ export type TerminalParamContext =
   | "app"
   | "scope"
   | "type"
-  | "appType";
+  | "appType"
+  | "libName";

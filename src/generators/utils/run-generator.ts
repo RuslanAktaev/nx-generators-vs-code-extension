@@ -7,9 +7,7 @@ export const runGenerator = async (
   config: GeneratorConfig,
   uri?: vscode.Uri
 ): Promise<void> => {
-  const title = `RonasIT/NX Generators: ${config.title}`;
-
-  vscode.window.showInformationMessage("RUN GENERATOR");
+  const title = `Ronas IT: NX Generators: ${config.title}`;
 
   await pickTerminalCommandParams({
     uri,
