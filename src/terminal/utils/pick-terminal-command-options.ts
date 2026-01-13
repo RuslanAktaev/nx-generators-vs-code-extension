@@ -13,7 +13,7 @@ export type PickTerminalCommandParamsArgs = {
   placeholder: string;
   executeCommandTitle: (params: Record<string, string>) => string;
   options: Array<TerminalParamPickerItem>;
-  onParamsEntered: (params: Record<string, string>) => void;
+  onParamsEntered: (params: Record<string, string>) => void | Promise<void>;
 };
 
 export const pickTerminalCommandParams = async ({
