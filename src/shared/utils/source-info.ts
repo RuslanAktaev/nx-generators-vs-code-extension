@@ -5,12 +5,15 @@ import { GetSourceInfoResult } from "../types";
 export const getLibName = async (
   ...pathSegments: Array<string>
 ): Promise<string> => {
-  const projectJson = await readJSON(
-    ...pathSegments.slice(0, 5),
-    "project.json"
-  );
-
-  return projectJson.name;
+  try {
+    const projectJson = await readJSON(
+      ...pathSegments.slice(0, 5),
+      "project.json"
+    );
+    return projectJson.name;
+  } catch (error) {
+    return "";
+  }
 };
 
 export const checkIsNextApp = async (appFolder: string): Promise<boolean> => {
