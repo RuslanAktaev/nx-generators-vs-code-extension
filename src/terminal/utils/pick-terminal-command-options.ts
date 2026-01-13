@@ -1,7 +1,11 @@
 import * as vscode from "vscode";
 import { TerminalParamPickerItem } from "../types";
 import { inputTerminalParamValue } from "./input-terminal-param-value";
-import { getSourceInfo } from "../../shared";
+import {
+  GetSourceAppInfo,
+  getSourceInfo,
+  GetSourceLibInfo,
+} from "../../shared";
 
 export type PickTerminalCommandParamsArgs = {
   uri?: vscode.Uri;
@@ -63,21 +67,12 @@ export const pickTerminalCommandParams = async ({
   ];
 
   options.forEach(({ context, label }) => {
-    if (
-      sourceInfo.locationType === "lib" &&
-      (context === "type" ||
-        context === "app" ||
-        context === "scope" ||
-        context === "libName")
-    ) {
-      updateParam(label, sourceInfo[context], false);
+    if (sourceInfo.locationType === "lib" && context && context in sourceInfo) {
+      updateParam(label, sourceInfo[context as keyof GetSourceLibInfo], false);
     }
 
-    if (
-      sourceInfo.locationType === "app" &&
-      (context === "appType" || context === "app")
-    ) {
-      updateParam(label, sourceInfo[context], false);
+    if (sourceInfo.locationType === "app" && context && context in sourceInfo) {
+      updateParam(label, sourceInfo[context as keyof GetSourceAppInfo], false);
     }
   });
 
