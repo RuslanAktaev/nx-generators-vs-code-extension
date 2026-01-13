@@ -1,7 +1,11 @@
 import * as vscode from "vscode";
 import { TerminalParamPickerItem } from "../types";
 import { inputTerminalParamValue } from "./input-terminal-param-value";
-import { getSourceInfo } from "../../shared";
+import {
+  GetSourceAppInfo,
+  getSourceInfo,
+  GetSourceLibInfo,
+} from "../../shared";
 
 export type PickTerminalCommandParamsArgs = {
   uri?: vscode.Uri;
@@ -9,18 +13,20 @@ export type PickTerminalCommandParamsArgs = {
   placeholder: string;
   executeCommandTitle: (params: Record<string, string>) => string;
   options: Array<TerminalParamPickerItem>;
-  onParamsEntered: (params: Record<string, string>) => void;
+  onParamsEntered: (params: Record<string, string>) => void | Promise<void>;
 };
 
-export const pickTerminalCommandParams = ({
+export const pickTerminalCommandParams = async ({
   uri,
   title,
   placeholder,
   executeCommandTitle,
   options,
   onParamsEntered,
-}: PickTerminalCommandParamsArgs): vscode.QuickPick<TerminalParamPickerItem> => {
-  const sourceInfo = getSourceInfo(uri);
+}: PickTerminalCommandParamsArgs): Promise<
+  vscode.QuickPick<TerminalParamPickerItem>
+> => {
+  const sourceInfo = await getSourceInfo(uri);
 
   let params: Record<string, any> = {};
 
@@ -61,11 +67,12 @@ export const pickTerminalCommandParams = ({
   ];
 
   options.forEach(({ context, label }) => {
-    if (
-      sourceInfo.isLib &&
-      (context === "type" || context === "app" || context === "scope")
-    ) {
-      updateParam(label, sourceInfo[context], false);
+    if (sourceInfo.locationType === "lib" && context && context in sourceInfo) {
+      updateParam(label, sourceInfo[context as keyof GetSourceLibInfo], false);
+    }
+
+    if (sourceInfo.locationType === "app" && context && context in sourceInfo) {
+      updateParam(label, sourceInfo[context as keyof GetSourceAppInfo], false);
     }
   });
 

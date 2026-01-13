@@ -3,10 +3,13 @@ import { pickTerminalCommandParams, sendTextToTerminal } from "../../terminal";
 import { GeneratorConfig } from "../types";
 import * as vscode from "vscode";
 
-export const runGenerator = (config: GeneratorConfig, uri?: vscode.Uri) => {
-  const title = `RonasIT/NX Generators: ${config.title}`;
+export const runGenerator = async (
+  config: GeneratorConfig,
+  uri?: vscode.Uri
+): Promise<void> => {
+  const title = `Ronas IT: NX Generators: ${config.title}`;
 
-  pickTerminalCommandParams({
+  await pickTerminalCommandParams({
     uri,
     title: `${title}. Options`,
     placeholder: "Execute command or set flags",

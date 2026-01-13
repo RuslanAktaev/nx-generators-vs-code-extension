@@ -2,19 +2,30 @@ import * as vscode from "vscode";
 
 export type SendTextToTerminalParams = {
   name?: string;
-  shellPath?: string;
-  shellArgs?: readonly string[] | string;
   command: string;
 };
 
-export const sendTextToTerminal = ({
+export const sendTextToTerminal = async ({
   name,
-  shellPath,
-  shellArgs,
   command,
-}: SendTextToTerminalParams): void => {
-  const terminal = vscode.window.createTerminal(name, shellPath, shellArgs);
+}: SendTextToTerminalParams): Promise<void> => {
+  const taskDefinition: vscode.TaskDefinition = {
+    type: "shell",
+  };
 
-  terminal.show();
-  terminal.sendText(command);
+  const task = new vscode.Task(
+    taskDefinition,
+    vscode.TaskScope.Workspace,
+    name ?? "NX Generator",
+    "nx-generators",
+    new vscode.ShellExecution(command)
+  );
+
+  task.presentationOptions = {
+    reveal: vscode.TaskRevealKind.Always,
+    panel: vscode.TaskPanelKind.Shared,
+    focus: true,
+  };
+
+  await vscode.tasks.executeTask(task);
 };
